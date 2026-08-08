@@ -1,0 +1,33 @@
+# Node
+node_modules/
+.expo/
+dist/
+.npm-cache/
+
+# Java / Kotlin
+.gradle/
+build/
+out/
+.m2/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local env
+.env
+.env.*
+
+# Coverage / logs
+coverage/
+*.log

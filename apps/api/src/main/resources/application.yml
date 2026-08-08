@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: lumen-finance-api
+  datasource:
+    url: ${LUMEN_DATABASE_URL:jdbc:postgresql://localhost:5432/lumen_finance}
+    username: ${LUMEN_DATABASE_USERNAME:lumen}
+    password: ${LUMEN_DATABASE_PASSWORD:lumen}
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+server:
+  port: ${PORT:8080}

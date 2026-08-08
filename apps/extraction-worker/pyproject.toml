@@ -1,0 +1,13 @@
+[project]
+name = "lumen-extraction-worker"
+version = "0.1.0"
+description = "Receipt extraction worker for Lumen Finance."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.111.0,<1.0.0",
+  "uvicorn[standard]>=0.30.0,<1.0.0",
+  "pydantic>=2.8.0,<3.0.0"
+]
+
+[tool.uv]
+package = false

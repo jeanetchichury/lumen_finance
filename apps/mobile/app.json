@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Lumen Finance",
+    "slug": "lumen-finance",
+    "scheme": "lumen",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}

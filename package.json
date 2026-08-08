@@ -1,0 +1,17 @@
+{
+  "name": "lumen-finance",
+  "private": true,
+  "workspaces": [
+    "apps/mobile"
+  ],
+  "scripts": {
+    "mobile:start": "npm --workspace apps/mobile run start",
+    "mobile:android": "npm --workspace apps/mobile run android",
+    "mobile:ios": "npm --workspace apps/mobile run ios",
+    "mobile:web": "npm --workspace apps/mobile run web"
+  },
+  "dependencies": {
+    "react-dom": "18.2.0",
+    "react-native-web": "~0.19.10"
+  }
+}

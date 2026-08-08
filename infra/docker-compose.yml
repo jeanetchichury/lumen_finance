@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: lumen_finance
+      POSTGRES_USER: lumen
+      POSTGRES_PASSWORD: lumen
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    image: maven:3.9.8-eclipse-temurin-17
+    working_dir: /workspace/apps/api
+    command: ["sh", "-c", "mvn spring-boot:run"]
+    ports:
+      - "8080:8080"
+    environment:
+      LUMEN_DATABASE_URL: jdbc:postgresql://postgres:5432/lumen_finance
+      LUMEN_DATABASE_USERNAME: lumen
+      LUMEN_DATABASE_PASSWORD: lumen
+    depends_on:
+      - postgres
+    volumes:
+      - ../:/workspace
+
+  extraction-worker:
+    image: python:3.12-slim
+    working_dir: /workspace/apps/extraction-worker
+    command: ["sh", "-c", "pip install -e . && uvicorn app.main:app --host 0.0.0.0 --port 8090"]
+    ports:
+      - "8090:8090"
+    volumes:
+      - ../:/workspace
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+
+volumes:
+  postgres_data:
